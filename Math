@@ -1,0 +1,36 @@
+# MAth
+1....
+Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+
+The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+Example 1:
+
+Input: nums = [2,5,6,9,10]
+Output: 2
+Sol:
+Use Euclidean alg to find GCD
+Prog:
+class Solution {
+    public int findGCD(int[] nums) {
+        int maxi=Integer.MIN_VALUE;
+        int mini=Integer.MAX_VALUE;
+        for(int it:nums)
+        {
+            mini=Math.min(it,mini);
+            maxi=Math.max(it,maxi);
+        }
+        return gcd(maxi,mini);
+        
+    }
+    private int gcd(int a,int b)
+    {
+        while(b!=0)
+        {
+            int temp=b;
+            b=a%b;
+            a=temp;
+        }
+        return a;
+    }
+}
+-----------------------------------------------------------------
